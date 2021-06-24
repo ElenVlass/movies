@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, NavLink, Switch } from "react-router-dom";
+import styles from "./App.module.scss";
+import HomePage from "./pages/HomePage";
+import MoviesPage from "./pages/MoviesPage";
+import MovieDetailsPage from "./pages/MovieDetailsPage";
+import Cast from "./pages/Cast";
+import Reviews from "./pages/Reviews";
+import NotFoundPage from "./pages/NotFoundPage";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+const App = () => (
+  <>
+    <ul>
+      <li>
+        <NavLink
+          exact
+          to="/"
+          className={styles.NavLink}
+          activeClassName={styles.NavLink__active}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/movies"
+          className={styles.NavLink}
+          activeClassName={styles.NavLink__active}
+        >
+          Movies
+        </NavLink>
+      </li>
+    </ul>
+
+    <Switch>
+      <Route path="/" exact component={HomePage} />
+      <Route path="/movies" component={MoviesPage} />
+      <Route path="/movies/:movieId" component={MovieDetailsPage} />
+      <Route path="/movies/:movieId/cast" component={Cast} />
+      <Route path="/movies/:movieId/reviews" component={Reviews} />
+      <Route component={NotFoundPage} />
+    </Switch>
+  </>
+);
 
 export default App;
