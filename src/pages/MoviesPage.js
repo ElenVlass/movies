@@ -21,6 +21,7 @@ class MoviesPage extends React.Component {
     const { initialQuery } = this.state;
     const movies = await searchMovies(initialQuery);
     this.setState({ movies });
+    // document.location.search = `?query=${initialQuery}`
   };
 
   // async componentDidMount() {

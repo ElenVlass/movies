@@ -1,12 +1,23 @@
 import { Component } from "react";
-// import { NavLink } from 'react-router-dom';
+import PropTypes from "prop-types";
 import styles from "./MovieDetails.module.scss";
-// import routes from '../../routes';
 import defaultStar from "../../images/star.png";
 
 export default class MovieDetails extends Component {
   static defaultProps = {
     profile_path: defaultStar,
+  };
+  static propTypes = {
+    title: PropTypes.string,
+    poster: PropTypes.string,
+    overview: PropTypes.string,
+    score: PropTypes.number,
+    genres: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number,
+        name: PropTypes.string,
+      })
+    ),
   };
   render() {
     const { title, poster, overview, score, genres } = this.props;

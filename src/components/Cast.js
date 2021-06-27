@@ -1,9 +1,21 @@
 import { Component } from "react";
 import defaultStar from "../images/star.png";
+import PropTypes, { arrayOf } from "prop-types";
 
 class Cast extends Component {
   static defaultProps = {
     profile_path: defaultStar,
+  };
+  static propTypes = {
+    actors: PropTypes.shape({
+      cast: arrayOf(
+        PropTypes.shape({
+          id: PropTypes.number,
+          name: PropTypes.string,
+          profile_path: PropTypes.string,
+        })
+      ),
+    }),
   };
   render() {
     const { actors } = this.props;

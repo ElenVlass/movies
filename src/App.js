@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import LoaderSpiner from "./components/Loader";
 import Layout from "./components/Layout";
 import NotFoundPage from "./pages/NotFoundPage";
@@ -24,6 +24,9 @@ const App = () => (
         <Route path={routes.home} exact component={HomePage} />
         <Route path={routes.moviesDetails} component={MovieDetailsPage} />
         <Route path={routes.movies} component={MoviesPage} />
+        <Route path="/goit-react-hw-04-movies">
+          <Redirect to={routes.home} />
+        </Route>
         <Route component={NotFoundPage} />
       </Switch>
     </Suspense>
