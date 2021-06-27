@@ -5,7 +5,7 @@ import { getMovieById } from "../services/themovie-api";
 import MovieDetails from "../components/MovieDetails";
 import Cast from "../components/Cast";
 import Reviews from "../components/Reviews";
-
+import routes from "../routes";
 import styles from "../components/MovieDetails/MovieDetails.module.scss";
 
 class MovieDetailsPage extends Component {
@@ -22,14 +22,32 @@ class MovieDetailsPage extends Component {
     console.log(movie);
     this.setState({ ...movie });
   }
+  handleGoBack = () => {
+    const { location, history } = this.props;
+
+    history.push(location?.state?.from || routes.movies);
+  };
 
   render() {
-    const { title, poster_path, overview, vote_average, genres, credits } =
-      this.state;
+    const {
+      title,
+      poster_path,
+      overview,
+      vote_average,
+      genres,
+      credits,
+      reviews,
+    } = this.state;
     const { match } = this.props;
 
     return (
       <>
+        <button type="button" onClick={this.handleGoBack}>
+          <span role="img" aria-label="Go back">
+            🔙{" "}
+          </span>
+          Go back
+        </button>
         <MovieDetails
           title={title}
           poster={poster_path}
@@ -49,12 +67,16 @@ class MovieDetailsPage extends Component {
           </ul>
           <Route
             path={`${this.props.match.path}/cast`}
-            render={(props) => <Cast {...props} actors={credits} />}
+            render={(props) => {
+              return credits && <Cast {...props} actors={credits} />;
+            }}
           />
 
           <Route
             path={`${this.props.match.path}/reviews`}
-            render={(props) => <Reviews {...props} />}
+            render={(props) => {
+              return reviews && <Reviews {...props} reviews={reviews} />;
+            }}
           />
         </div>
       </>

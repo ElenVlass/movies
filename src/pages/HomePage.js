@@ -28,7 +28,7 @@ class HomePage extends React.Component {
               alt={title}
             />
             {/* <Link to={`${this.props.match.url}/${id}`}> */}
-            <Link to={`/${id}`}>
+            <Link to={`movies/${id}`}>
               {title}
               {/* <Link to={`movies/${id}`}> */}
               {/* <MovieCard title={title} poster_path={poster_path}/> */}

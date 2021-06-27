@@ -8,24 +8,19 @@ class Cast extends Component {
   render() {
     const { actors } = this.props;
     return (
-      <>
-        <h1>This is Cast</h1>
-        <ul>
-          {actors &&
-            actors.cast &&
-            actors.cast.map(({ id, name, profile_path }) => (
-              <li key={id}>
-                <span>{name}</span>
-                {profile_path && (
-                  <img
-                    src={`https://www.themoviedb.org/t/p/w200${profile_path}`}
-                    alt=""
-                  />
-                )}
-              </li>
-            ))}
-        </ul>
-      </>
+      <ul>
+        {actors.cast.map(({ id, name, profile_path }) => (
+          <li key={id}>
+            <span>{name}</span>
+            {profile_path && (
+              <img
+                src={`https://www.themoviedb.org/t/p/w200${profile_path}`}
+                alt=""
+              />
+            )}
+          </li>
+        ))}
+      </ul>
     );
   }
 }
