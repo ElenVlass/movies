@@ -1,0 +1,21 @@
+@import "styles/shared.scss";
+
+// .header {
+//   min-height: 80px;
+//   background-color: #5678eb;
+// }
+.AppBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+  padding-left: 30px;
+  padding-right: 30px;
+  // background-color: #6b5926;
+  background-image: radial-gradient(at center, #ad8821 10%, #6b5926 50%);
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  padding-bottom: 20px;
+  margin: 0;
+  background-attachment: scroll;
+}

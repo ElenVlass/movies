@@ -1,0 +1,21 @@
+@import "styles/shared.scss";
+
+.NavLink {
+  font-size: 20px;
+  color: currentColor;
+  padding: 10px;
+  background-color: darkgoldenrod;
+  margin-right: 15px;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.NavLink__active {
+  color: rgb(136, 12, 12);
+}
+.NavList {
+  display: flex;
+}
+.List {
+  list-style: none;
+}

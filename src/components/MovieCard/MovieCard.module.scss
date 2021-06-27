@@ -1,0 +1,19 @@
+@import "styles/shared.scss";
+
+.MovieCard_thumb {
+  height: 300px;
+
+  & > img {
+    display: block;
+    // width: 100%;
+    // height: 100%;
+    width: 500px;
+    height: auto;
+    object-fit: cover;
+    object-position: top;
+  }
+}
+.card {
+  background-color: #fff;
+  display: flex;
+}
