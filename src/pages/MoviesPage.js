@@ -9,6 +9,7 @@ class MoviesPage extends React.Component {
   state = {
     movies: [],
     search: " ",
+    currentPage: 2,
   };
 
   onChangeQuery = (evt) => {
@@ -18,8 +19,8 @@ class MoviesPage extends React.Component {
   };
   searchMovie = async (evt) => {
     evt.preventDefault();
-    const { search } = this.state;
-    const movies = await searchMovies(search);
+    const { search, currentPage } = this.state;
+    const movies = await searchMovies(search, currentPage);
     this.setState({ movies });
     // document.location.search = `?query=${search}`
   };
