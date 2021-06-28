@@ -38,25 +38,24 @@ class MovieDetailsPage extends Component {
       credits,
       reviews,
     } = this.state;
+
     const { match } = this.props;
 
     return (
       <>
-        <button type="button" onClick={this.handleGoBack}>
-          <span role="img" aria-label="Go back">
-            🔙{" "}
-          </span>
-          Go back
-        </button>
-        <MovieDetails
-          title={title}
-          poster={poster_path}
-          overview={overview}
-          score={vote_average}
-          genres={genres}
-        />
+        {title && (
+          <MovieDetails
+            title={title}
+            poster={poster_path}
+            overview={overview}
+            score={vote_average}
+            genres={genres}
+            onClick={this.handleGoBack}
+          />
+        )}
+
         <div className={styles.AdditionalInfo}>
-          <p>Additional Information {this.props.match.url}</p>
+          <p className={styles.AdditionalInfo__title}>Additional Information</p>
           <ul>
             <li>
               <NavLink to={`${match.url}/cast`}>Cast</NavLink>
@@ -65,15 +64,16 @@ class MovieDetailsPage extends Component {
               <NavLink to={`${match.url}/reviews`}>Reviews</NavLink>
             </li>
           </ul>
+
           <Route
-            path={`${this.props.match.path}/cast`}
+            path={`${match.path}/cast`}
             render={(props) => {
               return credits && <Cast {...props} actors={credits} />;
             }}
           />
 
           <Route
-            path={`${this.props.match.path}/reviews`}
+            path={`${match.path}/reviews`}
             render={(props) => {
               return reviews && <Reviews {...props} reviews={reviews} />;
             }}

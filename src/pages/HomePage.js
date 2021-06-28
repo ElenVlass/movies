@@ -1,9 +1,7 @@
 import React from "react";
 
-import { Link } from "react-router-dom";
-import styles from "../components/MoviesList/MoviesList.module.scss";
-
 import { getMovies } from "../services/themovie-api";
+import MoviesList from "../components/MoviesList";
 
 class HomePage extends React.Component {
   state = {
@@ -14,21 +12,12 @@ class HomePage extends React.Component {
     const movies = await getMovies();
     this.setState({ movies });
   }
+
   render() {
-    console.log(this.props.match.url);
-    return (
-      <ul className={styles.MoviesList}>
-        {this.state?.movies.map(({ id, title, poster_path }) => (
-          <li key={id} className={styles.MovieCard}>
-            <img
-              src={`https://image.tmdb.org/t/p/w200/${poster_path}`}
-              alt={title}
-            />
-            <Link to={`movies/${id}`}>{title}</Link>
-          </li>
-        ))}
-      </ul>
-    );
+    // console.log(this.props.match.url);
+    const { movies } = this.state;
+
+    return <>{movies && <MoviesList movies={movies} />}</>;
   }
 }
 

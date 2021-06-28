@@ -8,20 +8,20 @@ import "../styles/base.scss";
 class MoviesPage extends React.Component {
   state = {
     movies: [],
-    initialQuery: " ",
+    search: " ",
   };
 
   onChangeQuery = (evt) => {
     this.setState({
-      initialQuery: evt.currentTarget.value,
+      search: evt.currentTarget.value,
     });
   };
   searchMovie = async (evt) => {
     evt.preventDefault();
-    const { initialQuery } = this.state;
-    const movies = await searchMovies(initialQuery);
+    const { search } = this.state;
+    const movies = await searchMovies(search);
     this.setState({ movies });
-    // document.location.search = `?query=${initialQuery}`
+    // document.location.search = `?query=${search}`
   };
 
   // async componentDidMount() {
@@ -30,11 +30,11 @@ class MoviesPage extends React.Component {
   //     console.log(movies);
   // }
   render() {
-    const { initialQuery } = this.state;
+    const { search } = this.state;
     return (
       <div className="MoviesPage">
         <form onSubmit={this.searchMovie}>
-          <input value={initialQuery} onChange={this.onChangeQuery}></input>
+          <input value={search} onChange={this.onChangeQuery}></input>
           <button type="submit">Search</button>
         </form>
         <MoviesList movies={this.state.movies} />

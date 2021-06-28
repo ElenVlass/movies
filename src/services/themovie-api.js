@@ -3,9 +3,6 @@ import axios from "axios";
 const API_KEY = "17b2b146e05f15592cbc027a030a6f63";
 axios.defaults.baseURL = "https://api.themoviedb.org/3/";
 
-//Example API Request
-//https://api.themoviedb.org/3/movie/550?api_key=17b2b146e05f15592cbc027a030a6f63
-
 export const getMovies = () => {
   return axios
     .get(`trending/movie/week?api_key=${API_KEY}`)
@@ -19,6 +16,7 @@ export const searchMovies = (query) => {
     )
     .then((response) => response.data.results);
 };
+
 export const getMovieById = (movieId) => {
   return axios
     .get(
@@ -27,9 +25,12 @@ export const getMovieById = (movieId) => {
     .then((response) => response.data);
 };
 
-export const getMovieReviews = (movieId) => {
-  return axios.get(`movie/${movieId}/reviews?api_key=${API_KEY}`);
-};
-export const getMovieCast = (movieId) => {
-  return axios.get(`movie/${movieId}/credits?api_key=${API_KEY}`);
-};
+// export const getMovieReviews = (movieId) => {
+//   return axios.get(`movie/${movieId}/reviews?api_key=${API_KEY}`);
+// };
+// export const getMovieCast = (movieId) => {
+//   return axios.get(`movie/${movieId}/credits?api_key=${API_KEY}`);
+// };
+
+//Example API Request
+//https://api.themoviedb.org/3/movie/550?api_key=17b2b146e05f15592cbc027a030a6f63

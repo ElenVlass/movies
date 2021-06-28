@@ -1,20 +1,14 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
-import styles from "./MoviesList.module.scss";
+import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
+import MovieCard from "../MovieCard/MovieCard";
+import styles from "./MoviesList.module.scss";
 
-const MoviesList = ({ movies, match }) => (
+const MoviesList = ({ movies }) => (
   <ul className={styles.MoviesList}>
-    {movies?.map(({ id, title, poster_path }) => (
+    {movies.map(({ id, title, poster_path }) => (
       <li key={id} className={styles.MovieCard}>
-        {poster_path && (
-          <img
-            src={`https://image.tmdb.org/t/p/w200/${poster_path}`}
-            alt={title}
-            width="80"
-          />
-        )}
-        <Link to={`${match.url}/${id}`}>{title}</Link>
+        <MovieCard id={id} title={title} poster={poster_path} />
       </li>
     ))}
   </ul>

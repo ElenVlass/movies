@@ -20,27 +20,35 @@ export default class MovieDetails extends Component {
     ),
   };
   render() {
-    const { title, poster, overview, score, genres } = this.props;
+    const { title, poster, overview, score, genres, onClick } = this.props;
     return (
-      <div className={styles.card}>
-        <div className={styles.MovieCard_thumb}>
-          {poster && (
+      <>
+        <button type="button" onClick={onClick}>
+          <span role="img" aria-label="Go back">
+            🔙{" "}
+          </span>
+          Go back
+        </button>
+        <div className={styles.card}>
+          <div className={styles.MovieCard_thumb}>
             <img
               src={`https://image.tmdb.org/t/p/w500/${poster}`}
               alt={title}
             />
-          )}
+          </div>
+          <div className={styles.MovieCard_meta}>
+            <h2>{title}</h2>
+            <p>User Score: {score}</p>
+            <p>Overview: {overview}</p>
+            <ul>
+              Genres:{" "}
+              {genres.map(({ id, name }) => (
+                <li key={id}> {name} </li>
+              ))}
+            </ul>
+          </div>
         </div>
-        <div className={styles.MovieCard_meta}>
-          <h2>{title}</h2>
-          <p>User Score: {score}</p>
-          <p>Overview: {overview}</p>
-          <ul>
-            Genres:{" "}
-            {genres && genres.map(({ id, name }) => <li key={id}> {name} </li>)}
-          </ul>
-        </div>
-      </div>
+      </>
     );
   }
 }
