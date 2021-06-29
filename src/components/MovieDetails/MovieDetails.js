@@ -1,9 +1,10 @@
 import { Component } from "react";
+import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import styles from "./MovieDetails.module.scss";
 import defaultStar from "../../images/star.png";
 
-export default class MovieDetails extends Component {
+class MovieDetails extends Component {
   static defaultProps = {
     profile_path: defaultStar,
   };
@@ -20,7 +21,8 @@ export default class MovieDetails extends Component {
     ),
   };
   render() {
-    const { title, poster, overview, score, genres, onClick } = this.props;
+    const { title, poster, overview, score, genres, onClick, match } =
+      this.props;
     return (
       <>
         <button type="button" onClick={onClick}>
@@ -52,3 +54,4 @@ export default class MovieDetails extends Component {
     );
   }
 }
+export default withRouter(MovieDetails);

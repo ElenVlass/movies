@@ -9,9 +9,9 @@ class Reviews extends Component {
     console.log(reviews);
     return (
       <ul>
-        {reviews.results.length === 0
+        {reviews.length === 0
           ? "We don't have any rewiews for this movie"
-          : reviews.results.map(({ id, author, content }) => (
+          : reviews.map(({ id, author, content }) => (
               <li key={id}>
                 <h2>Author: {author}</h2>
                 <p>{content}</p>

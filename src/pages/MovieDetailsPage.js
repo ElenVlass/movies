@@ -68,14 +68,16 @@ class MovieDetailsPage extends Component {
           <Route
             path={`${match.path}/cast`}
             render={(props) => {
-              return credits && <Cast {...props} actors={credits} />;
+              return credits && <Cast {...props} actors={credits.cast} />;
             }}
           />
 
           <Route
             path={`${match.path}/reviews`}
             render={(props) => {
-              return reviews && <Reviews {...props} reviews={reviews} />;
+              return (
+                reviews && <Reviews {...props} reviews={reviews.results} />
+              );
             }}
           />
         </div>

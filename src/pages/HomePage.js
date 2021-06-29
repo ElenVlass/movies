@@ -28,7 +28,7 @@ class HomePage extends React.Component {
 
     return (
       <>
-        {movies && <MoviesList movies={movies} />}
+        {movies.length > 0 && <MoviesList movies={movies} />}
         <LoadMore onClick={this.fetchMovies} />
       </>
     );

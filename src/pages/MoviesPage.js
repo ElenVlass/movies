@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { searchMovies } from "../services/themovie-api";
 
 import MoviesList from "../components/MoviesList";
@@ -9,7 +9,6 @@ class MoviesPage extends React.Component {
   state = {
     movies: [],
     search: " ",
-    currentPage: 2,
   };
 
   onChangeQuery = (evt) => {
@@ -19,26 +18,28 @@ class MoviesPage extends React.Component {
   };
   searchMovie = async (evt) => {
     evt.preventDefault();
-    const { search, currentPage } = this.state;
-    const movies = await searchMovies(search, currentPage);
+    const { search } = this.state;
+    const movies = await searchMovies(search);
     this.setState({ movies });
     // document.location.search = `?query=${search}`
+    this.props.location.search = `${search}`;
   };
 
-  // async componentDidMount() {
-  //     const movies = await getMoviesById();
-  //     this.setState({movies})
-  //     console.log(movies);
-  // }
   render() {
-    const { search } = this.state;
+    const { search, movies } = this.state;
     return (
       <div className="MoviesPage">
         <form onSubmit={this.searchMovie}>
           <input value={search} onChange={this.onChangeQuery}></input>
           <button type="submit">Search</button>
+          {/* <Link to={`/movies?query=${search}`}>Search</Link> */}
         </form>
-        <MoviesList movies={this.state.movies} />
+        {movies && (
+          <MoviesList
+            movies={this.state.movies}
+            location={this.props.location}
+          />
+        )}
       </div>
     );
   }

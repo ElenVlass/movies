@@ -1,27 +1,25 @@
 import { Component } from "react";
 import defaultStar from "../images/star.png";
-import PropTypes, { arrayOf } from "prop-types";
+import PropTypes from "prop-types";
 
 class Cast extends Component {
   static defaultProps = {
     profile_path: defaultStar,
   };
   static propTypes = {
-    actors: PropTypes.shape({
-      cast: arrayOf(
-        PropTypes.shape({
-          id: PropTypes.number,
-          name: PropTypes.string,
-          profile_path: PropTypes.string,
-        })
-      ),
-    }),
+    actors: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number,
+        name: PropTypes.string,
+        profile_path: PropTypes.string,
+      })
+    ),
   };
   render() {
     const { actors } = this.props;
     return (
       <ul>
-        {actors.cast.map(({ id, name, profile_path }) => (
+        {actors.map(({ id, name, profile_path }) => (
           <li key={id}>
             <span>{name}</span>
             {profile_path && (
