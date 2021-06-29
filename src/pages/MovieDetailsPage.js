@@ -16,6 +16,7 @@ class MovieDetailsPage extends Component {
     score: null,
     genres: null,
   };
+
   async componentDidMount() {
     const { movieId } = this.props.match.params;
     const movie = await getMovieById(movieId);
@@ -25,7 +26,7 @@ class MovieDetailsPage extends Component {
   handleGoBack = () => {
     const { location, history } = this.props;
 
-    history.push(location?.state?.from || routes.movies);
+    history.push(location?.state?.from || routes.home);
   };
 
   render() {
