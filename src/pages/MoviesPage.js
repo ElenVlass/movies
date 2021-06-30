@@ -11,6 +11,17 @@ class MoviesPage extends React.Component {
     search: "",
   };
 
+  async componentDidMount() {
+    console.log("componentDidMount");
+    const paramsString = this.props.history?.location?.search;
+    const searchParams = new URLSearchParams(paramsString);
+    const search = searchParams.get("query");
+    if (search) {
+      const movies = await searchMovies(search);
+      this.setState({ movies });
+    }
+  }
+
   onChangeQuery = (evt) => {
     this.setState({
       search: evt.currentTarget.value,
@@ -18,11 +29,15 @@ class MoviesPage extends React.Component {
   };
   searchMovie = async (evt) => {
     evt.preventDefault();
+
     const { search } = this.state;
     const movies = await searchMovies(search);
     this.setState({ movies });
-    this.props.location.search = `query=${search}`;
-    // this.props.location.search = `${search}`;
+
+    this.props.history.push({
+      pathname: this.props.location.pathname,
+      search: `?query=${search}`,
+    });
   };
 
   render() {

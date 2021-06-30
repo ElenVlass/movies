@@ -16,7 +16,7 @@ class MoviesList extends Component {
   };
 
   render() {
-    const { movies, location, search } = this.props;
+    const { movies, location } = this.props;
     return (
       <ul className={styles.MoviesList}>
         {movies.map(({ id, title, poster_path }) => (
@@ -24,7 +24,7 @@ class MoviesList extends Component {
             <Link
               to={{
                 pathname: `/movies/${id}`,
-                // search: `query=${search}`,
+                // search: `?query=${search}`,
                 state: { from: location },
               }}
             >
