@@ -20,17 +20,10 @@ export const searchMovies = (query) => {
 export const getMovieById = (movieId) => {
   return axios
     .get(
-      `movie/${movieId}?api_key=${API_KEY}&append_to_response=credits,reviews`
+      `movie/${movieId}?api_key=${API_KEY}&append_to_response=credits,reviews,images`
     )
     .then((response) => response.data);
 };
-
-// export const getMovieReviews = (movieId) => {
-//   return axios.get(`movie/${movieId}/reviews?api_key=${API_KEY}`);
-// };
-// export const getMovieCast = (movieId) => {
-//   return axios.get(`movie/${movieId}/credits?api_key=${API_KEY}`);
-// };
 
 //Example API Request
 //https://api.themoviedb.org/3/movie/550?api_key=17b2b146e05f15592cbc027a030a6f63

@@ -35,6 +35,7 @@ class MovieDetailsPage extends Component {
       poster_path,
       overview,
       vote_average,
+      tagline,
       genres,
       credits,
       reviews,
@@ -51,6 +52,7 @@ class MovieDetailsPage extends Component {
             overview={overview}
             score={vote_average}
             genres={genres}
+            tagline={tagline}
             onClick={this.handleGoBack}
           />
         )}

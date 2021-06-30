@@ -21,7 +21,7 @@ class MovieDetails extends Component {
     ),
   };
   render() {
-    const { title, poster, overview, score, genres, onClick, match } =
+    const { title, poster, overview, score, genres, onClick, tagline } =
       this.props;
     return (
       <>
@@ -40,6 +40,7 @@ class MovieDetails extends Component {
           </div>
           <div className={styles.MovieCard_meta}>
             <h2>{title}</h2>
+            <p>{tagline}</p>
             <p>User Score: {score}</p>
             <p>Overview: {overview}</p>
             <ul>

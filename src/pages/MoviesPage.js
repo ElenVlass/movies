@@ -12,7 +12,6 @@ class MoviesPage extends React.Component {
   };
 
   async componentDidMount() {
-    console.log("componentDidMount");
     const paramsString = this.props.history?.location?.search;
     const searchParams = new URLSearchParams(paramsString);
     const search = searchParams.get("query");
@@ -27,6 +26,7 @@ class MoviesPage extends React.Component {
       search: evt.currentTarget.value,
     });
   };
+
   searchMovie = async (evt) => {
     evt.preventDefault();
 
@@ -48,7 +48,7 @@ class MoviesPage extends React.Component {
           <input value={search} onChange={this.onChangeQuery}></input>
           <button type="submit">Search</button>
         </form>
-        {movies && (
+        {movies.length > 0 && (
           <MoviesList
             movies={this.state.movies}
             location={this.props.location}
