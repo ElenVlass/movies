@@ -43,7 +43,7 @@ export default class Images extends Component {
     return (
       <>
         <div className={styles.ImagesContainer}>
-          <div className="controls" className={styles.Controls}>
+          <div className={styles.Controls}>
             <button
               type="button"
               onClick={this.showPrewImg}
