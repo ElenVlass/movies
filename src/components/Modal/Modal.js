@@ -30,7 +30,7 @@ export default class Modal extends Component {
     return (
       <div className={styles.Overlay} onClick={this.onOverlayClick}>
         <div className={styles.Modal}>
-          <img src={src} alt="poster" onClick={onImageClick} />
+          <img src={src} alt="poster" width="400" onClick={onImageClick} />
         </div>
       </div>
     );

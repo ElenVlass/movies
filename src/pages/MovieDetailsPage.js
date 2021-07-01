@@ -47,7 +47,7 @@ class MovieDetailsPage extends Component {
       images,
     } = this.state;
 
-    const { match } = this.props;
+    const { match, location } = this.props;
 
     return (
       <>
@@ -67,13 +67,34 @@ class MovieDetailsPage extends Component {
           <p className={styles.AdditionalInfo__title}>Additional Information</p>
           <ul>
             <li>
-              <NavLink to={`${match.url}/cast`}>Cast</NavLink>
+              <NavLink
+                to={{
+                  pathname: `${match.url}/cast`,
+                  state: { from: location },
+                }}
+              >
+                Cast
+              </NavLink>
             </li>
             <li>
-              <NavLink to={`${match.url}/reviews`}>Reviews</NavLink>
+              <NavLink
+                to={{
+                  pathname: `${match.url}/reviews`,
+                  state: { from: location },
+                }}
+              >
+                Reviews
+              </NavLink>
             </li>
             <li>
-              <NavLink to={`${match.url}/images`}>Images</NavLink>
+              <NavLink
+                to={{
+                  pathname: `${match.url}/images`,
+                  state: { from: location },
+                }}
+              >
+                Images
+              </NavLink>
             </li>
           </ul>
 
