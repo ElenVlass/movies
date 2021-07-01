@@ -22,6 +22,7 @@ class MoviesList extends Component {
         {movies.map(({ id, title, poster_path }) => (
           <li key={id} className={styles.MovieCard}>
             <Link
+              className={styles.MovieItem}
               to={{
                 pathname: `/movies/${id}`,
                 // search: `?query=${search}`,

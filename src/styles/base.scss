@@ -22,6 +22,19 @@ img {
   max-width: 100%;
   height: auto;
 }
-.MoviesPage {
-  height: 100vh;
+.MoviesForm {
+  margin-left: 100px;
+  margin-bottom: 25px;
+}
+.button {
+  background-color: $main-color;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+  display: block;
+  color: #fff;
+  border: 0;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 18px;
 }

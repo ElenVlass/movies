@@ -1,10 +1,11 @@
 @import "styles/shared.scss";
 
 .NavLink {
+  display: block;
   font-size: 20px;
   color: currentColor;
-  padding: 10px;
-  background-color: darkgoldenrod;
+  padding: 10px 25px;
+  background-color: #ac8225;
   margin-right: 15px;
   border-radius: 10px;
   text-decoration: none;

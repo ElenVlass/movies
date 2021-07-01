@@ -5,6 +5,7 @@ import { getMovieById } from "../services/themovie-api";
 import MovieDetails from "../components/MovieDetails";
 import Cast from "../components/Cast";
 import Reviews from "../components/Reviews";
+import Images from "../components/Images";
 import routes from "../routes";
 import styles from "../components/MovieDetails/MovieDetails.module.scss";
 
@@ -15,6 +16,10 @@ class MovieDetailsPage extends Component {
     overview: null,
     score: null,
     genres: null,
+    tagline: null,
+    credits: null,
+    reviews: null,
+    images: null,
   };
 
   async componentDidMount() {
@@ -39,6 +44,7 @@ class MovieDetailsPage extends Component {
       genres,
       credits,
       reviews,
+      images,
     } = this.state;
 
     const { match } = this.props;
@@ -66,6 +72,9 @@ class MovieDetailsPage extends Component {
             <li>
               <NavLink to={`${match.url}/reviews`}>Reviews</NavLink>
             </li>
+            <li>
+              <NavLink to={`${match.url}/images`}>Images</NavLink>
+            </li>
           </ul>
 
           <Route
@@ -81,6 +90,13 @@ class MovieDetailsPage extends Component {
               return (
                 reviews && <Reviews {...props} reviews={reviews.results} />
               );
+            }}
+          />
+
+          <Route
+            path={`${match.path}/images`}
+            render={(props) => {
+              return images && <Images {...props} images={images.backdrops} />;
             }}
           />
         </div>

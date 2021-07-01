@@ -43,8 +43,8 @@ class MoviesPage extends React.Component {
   render() {
     const { search, movies } = this.state;
     return (
-      <div className="MoviesPage">
-        <form onSubmit={this.searchMovie}>
+      <div>
+        <form onSubmit={this.searchMovie} className="MoviesForm">
           <input value={search} onChange={this.onChangeQuery}></input>
           <button type="submit">Search</button>
         </form>
