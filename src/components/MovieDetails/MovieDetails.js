@@ -25,7 +25,7 @@ class MovieDetails extends Component {
       this.props;
     return (
       <>
-        <button type="button" onClick={onClick}>
+        <button type="button" onClick={onClick} className={styles.GoBackBtn}>
           <span role="img" aria-label="Go back">
             🔙{" "}
           </span>

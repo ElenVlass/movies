@@ -22,3 +22,12 @@
   font-weight: 600;
   text-transform: uppercase;
 }
+.GoBackBtn {
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  font-weight: 600;
+  background-color: rgb(155, 108, 6);
+  &:hover {
+    background-color: #e45447;
+  }
+}
