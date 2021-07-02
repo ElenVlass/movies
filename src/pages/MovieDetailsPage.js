@@ -21,11 +21,16 @@ class MovieDetailsPage extends Component {
     credits: null,
     reviews: null,
     images: null,
+    loading: false,
+    error: null,
   };
 
   async componentDidMount() {
+    this.setState({ loading: true });
     const { movieId } = this.props.match.params;
-    const movie = await getMovieById(movieId);
+    const movie = await getMovieById(movieId)
+      .catch((error) => this.setState({ error }))
+      .finally(() => this.setState({ loading: false }));
     console.log(movie);
     this.setState({ ...movie });
   }
@@ -48,7 +53,7 @@ class MovieDetailsPage extends Component {
       images,
     } = this.state;
 
-    const { match, location, history } = this.props;
+    const { match, history } = this.props;
 
     return (
       <CSSTransition

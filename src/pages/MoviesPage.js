@@ -9,9 +9,12 @@ class MoviesPage extends React.Component {
   state = {
     movies: [],
     search: "",
+    loading: false,
+    error: null,
   };
 
   async componentDidMount() {
+    this.setState({ loading: true });
     const paramsString = this.props.history?.location?.search;
     const searchParams = new URLSearchParams(paramsString);
     const search = searchParams.get("query");
@@ -31,7 +34,9 @@ class MoviesPage extends React.Component {
     evt.preventDefault();
 
     const { search } = this.state;
-    const movies = await searchMovies(search);
+    const movies = await searchMovies(search)
+      .catch((error) => this.setState({ error }))
+      .finally(() => this.setState({ loading: false }));
     this.setState({ movies });
 
     this.props.history.push({

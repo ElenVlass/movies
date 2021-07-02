@@ -27,3 +27,5 @@ export const getMovieById = (movieId) => {
 
 //Example API Request
 //https://api.themoviedb.org/3/movie/550?api_key=17b2b146e05f15592cbc027a030a6f63
+
+// const weeklyMoviesUrl = `trending/movie/week?api_key=${API_KEY}&page=${page}`;
