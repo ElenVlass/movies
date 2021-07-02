@@ -48,7 +48,7 @@ class MovieDetailsPage extends Component {
       images,
     } = this.state;
 
-    const { match, location } = this.props;
+    const { match, location, history } = this.props;
 
     return (
       <CSSTransition
@@ -78,7 +78,9 @@ class MovieDetailsPage extends Component {
                 <NavLink
                   to={{
                     pathname: `${match.url}/cast`,
-                    state: { from: location },
+                    state: {
+                      from: `/movies/${history.location.state.from.search}`,
+                    },
                   }}
                   className={styles.NavLinkAdditional}
                   activeClassName={styles.ActiveNavLinkAdditional}
@@ -90,7 +92,9 @@ class MovieDetailsPage extends Component {
                 <NavLink
                   to={{
                     pathname: `${match.url}/reviews`,
-                    state: { from: location },
+                    state: {
+                      from: `/movies/${history.location.state.from.search}`,
+                    },
                   }}
                   className={styles.NavLinkAdditional}
                   activeClassName={styles.ActiveNavLinkAdditional}
@@ -102,7 +106,9 @@ class MovieDetailsPage extends Component {
                 <NavLink
                   to={{
                     pathname: `${match.url}/images`,
-                    state: { from: location },
+                    state: {
+                      from: `/movies/${history.location.state.from.search}`,
+                    },
                   }}
                   className={styles.NavLinkAdditional}
                   activeClassName={styles.ActiveNavLinkAdditional}
