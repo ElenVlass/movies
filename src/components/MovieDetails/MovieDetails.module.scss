@@ -11,12 +11,12 @@
   }
 }
 .card {
-  background-color: #fff;
+  background-color: $bcg-cl-card;
   display: flex;
 }
 .AdditionalInfo {
-  border: 1px solid rgb(155, 108, 6);
-  background-color: #fff;
+  border: 1px solid $btn-bgc-cl;
+  background-color: $bcg-cl-card;
 }
 .AdditionalInfo__title {
   font-weight: 600;
@@ -26,8 +26,8 @@
   padding: 10px 15px;
   margin-bottom: 15px;
   font-weight: 600;
-  background-color: rgb(155, 108, 6);
+  background-color: $btn-bgc-cl;
   &:hover {
-    background-color: #e45447;
+    background-color: $hover-bgd-cl;
   }
 }

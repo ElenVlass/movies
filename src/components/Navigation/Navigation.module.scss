@@ -5,14 +5,17 @@
   font-size: 20px;
   color: currentColor;
   padding: 10px 25px;
-  background-color: #ac8225;
-  margin-right: 15px;
+  background-color: $bcg-cl-btn;
+  margin-right: 35px;
   border-radius: 10px;
   text-decoration: none;
+  &:hover {
+    background-color: $hover-bgd-cl;
+  }
 }
 
 .NavLink__active {
-  color: rgb(136, 12, 12);
+  color: $font-cl-active;
 }
 .NavList {
   display: flex;
