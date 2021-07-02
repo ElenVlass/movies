@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { NavLink, Route } from "react-router-dom";
+import { CSSTransition } from "react-transition-group";
 
 import { getMovieById } from "../services/themovie-api";
 import MovieDetails from "../components/MovieDetails";
@@ -50,8 +51,14 @@ class MovieDetailsPage extends Component {
     const { match, location } = this.props;
 
     return (
-      <>
-        {title && (
+      <CSSTransition
+        in={true}
+        appear={true}
+        timeout={500}
+        classNames={styles}
+        unmountOnExit
+      >
+        <div>
           <MovieDetails
             title={title}
             poster={poster_path}
@@ -61,67 +68,77 @@ class MovieDetailsPage extends Component {
             tagline={tagline}
             onClick={this.handleGoBack}
           />
-        )}
 
-        <div className={styles.AdditionalInfo}>
-          <p className={styles.AdditionalInfo__title}>Additional Information</p>
-          <ul>
-            <li>
-              <NavLink
-                to={{
-                  pathname: `${match.url}/cast`,
-                  state: { from: location },
-                }}
-              >
-                Cast
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to={{
-                  pathname: `${match.url}/reviews`,
-                  state: { from: location },
-                }}
-              >
-                Reviews
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to={{
-                  pathname: `${match.url}/images`,
-                  state: { from: location },
-                }}
-              >
-                Images
-              </NavLink>
-            </li>
-          </ul>
+          <div className={styles.AdditionalInfo}>
+            <p className={styles.AdditionalInfo__title}>
+              Additional Information
+            </p>
+            <ul className={styles.AdditionalList}>
+              <li>
+                <NavLink
+                  to={{
+                    pathname: `${match.url}/cast`,
+                    state: { from: location },
+                  }}
+                  className={styles.NavLinkAdditional}
+                  activeClassName={styles.ActiveNavLinkAdditional}
+                >
+                  Cast
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to={{
+                    pathname: `${match.url}/reviews`,
+                    state: { from: location },
+                  }}
+                  className={styles.NavLinkAdditional}
+                  activeClassName={styles.ActiveNavLinkAdditional}
+                >
+                  Reviews
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to={{
+                    pathname: `${match.url}/images`,
+                    state: { from: location },
+                  }}
+                  className={styles.NavLinkAdditional}
+                  activeClassName={styles.ActiveNavLinkAdditional}
+                >
+                  Images
+                </NavLink>
+              </li>
+            </ul>
 
-          <Route
-            path={`${match.path}/cast`}
-            render={(props) => {
-              return credits && <Cast {...props} actors={credits.cast} />;
-            }}
-          />
+            <Route
+              path={`${match.path}/cast`}
+              render={(props) => {
+                return credits && <Cast {...props} actors={credits.cast} />;
+              }}
+            />
 
-          <Route
-            path={`${match.path}/reviews`}
-            render={(props) => {
-              return (
-                reviews && <Reviews {...props} reviews={reviews.results} />
-              );
-            }}
-          />
+            <Route
+              path={`${match.path}/reviews`}
+              render={(props) => {
+                return (
+                  reviews && <Reviews {...props} reviews={reviews.results} />
+                );
+              }}
+            />
 
-          <Route
-            path={`${match.path}/images`}
-            render={(props) => {
-              return images && <Images {...props} images={images.backdrops} />;
-            }}
-          />
+            <Route
+              path={`${match.path}/images`}
+              render={(props) => {
+                return (
+                  images && <Images {...props} images={images.backdrops} />
+                );
+              }}
+            />
+          </div>
         </div>
-      </>
+      </CSSTransition>
     );
   }
 }

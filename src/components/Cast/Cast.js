@@ -1,6 +1,7 @@
 import { Component } from "react";
-import defaultStar from "../images/star.png";
 import PropTypes from "prop-types";
+import defaultStar from "../../images/star.png";
+import styles from "./Cast.module.scss";
 
 class Cast extends Component {
   static defaultProps = {
@@ -18,14 +19,15 @@ class Cast extends Component {
   render() {
     const { actors } = this.props;
     return (
-      <ul>
-        {actors.map(({ id, name, profile_path }) => (
-          <li key={id}>
-            <span>{name}</span>
+      <ul className={styles.CastList}>
+        {actors?.map(({ id, name, profile_path }) => (
+          <li key={id} className={styles.CastItem}>
+            <span className={styles.CastName}>{name}</span>
             {profile_path && (
               <img
                 src={`https://www.themoviedb.org/t/p/w200${profile_path}`}
                 alt=""
+                className={styles.CastImg}
               />
             )}
           </li>

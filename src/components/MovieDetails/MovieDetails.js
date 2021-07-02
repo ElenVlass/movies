@@ -33,10 +33,12 @@ class MovieDetails extends Component {
         </button>
         <div className={styles.card}>
           <div className={styles.MovieCard_thumb}>
-            <img
-              src={`https://image.tmdb.org/t/p/w500/${poster}`}
-              alt={title}
-            />
+            {poster && (
+              <img
+                src={`https://image.tmdb.org/t/p/w500/${poster}`}
+                alt={title}
+              />
+            )}
           </div>
           <div className={styles.MovieCard_meta}>
             <h2>{title}</h2>
@@ -45,7 +47,7 @@ class MovieDetails extends Component {
             <p>Overview: {overview}</p>
             <ul>
               Genres:{" "}
-              {genres.map(({ id, name }) => (
+              {genres?.map(({ id, name }) => (
                 <li key={id}> {name} </li>
               ))}
             </ul>

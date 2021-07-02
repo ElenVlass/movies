@@ -6,11 +6,13 @@ class MovieCard extends Component {
     const { title, poster } = this.props;
     return (
       <>
-        <img
-          src={`https://image.tmdb.org/t/p/w200/${poster}`}
-          alt={title}
-          className={styles.image}
-        />
+        {poster && (
+          <img
+            src={`https://image.tmdb.org/t/p/w200/${poster}`}
+            alt={title}
+            className={styles.image}
+          />
+        )}
         <p className={styles.title}>{title}</p>
       </>
     );

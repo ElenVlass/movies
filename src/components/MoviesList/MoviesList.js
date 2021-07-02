@@ -19,20 +19,21 @@ class MoviesList extends Component {
     const { movies, location } = this.props;
     return (
       <ul className={styles.MoviesList}>
-        {movies.map(({ id, title, poster_path }) => (
-          <li key={id} className={styles.MovieCard}>
-            <Link
-              className={styles.MovieItem}
-              to={{
-                pathname: `/movies/${id}`,
-                // search: `?query=${search}`,
-                state: { from: location },
-              }}
-            >
-              <MovieCard id={id} title={title} poster={poster_path} />
-            </Link>
-          </li>
-        ))}
+        {movies.length > 0 &&
+          movies.map(({ id, title, poster_path }) => (
+            <li key={id} className={styles.MovieCard}>
+              <Link
+                className={styles.MovieItem}
+                to={{
+                  pathname: `/movies/${id}`,
+                  // search: `?query=${search}`,
+                  state: { from: location },
+                }}
+              >
+                <MovieCard id={id} title={title} poster={poster_path} />
+              </Link>
+            </li>
+          ))}
       </ul>
     );
   }
