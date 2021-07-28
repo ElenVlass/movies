@@ -59,12 +59,9 @@ export default class Images extends Component {
               Next
             </button>
           </div>
-          <img
-            src={imageUrl}
-            alt="movie poster"
-            width="400"
-            onClick={this.toggleModal}
-          />
+          <div className={styles.ImageBox} onClick={this.toggleModal}>
+            <img src={imageUrl} alt="movie poster" width="400" />
+          </div>
         </div>
         {isModalOpen && (
           <Modal
