@@ -1,4 +1,21 @@
-Приложение для поиска и хранения фильмов
+## Movie searcher
+
+#### The SPA for searching and viewing detail information about the movies
+
+[DEMO](https://vlass-movie-finder.netlify.app/)
+![Home page]()
+
+---
+
+![Movies page for serch]()
+
+![Movie details page with nested routes]()
+
+---
+
+![cast-nested-route.png]()
+
+---
 
 В приложении есть следующие маршруты:
 
