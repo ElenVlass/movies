@@ -2,18 +2,15 @@
 
 #### The SPA for searching and viewing detail information about the movies
 
-[DEMO](https://vlass-movie-finder.netlify.app/)
-![Home page]()
+## [DEMO](https://vlass-movie-finder.netlify.app/)
 
----
+![Home page](https://github.com/ElenVlass/goit-react-hw-04-movies/blob/main/src/images/home-page.png)
 
-![Movies page for serch]()
+![Movies page for serch](https://github.com/ElenVlass/goit-react-hw-04-movies/blob/main/src/images/movies-page-for-serch.png)
 
-![Movie details page with nested routes]()
+![Movie details page with nested routes](https://github.com/ElenVlass/goit-react-hw-04-movies/blob/main/src/images/movie-details-page-with-nested-routes.png)
 
----
-
-![cast-nested-route.png]()
+![Cast nested route](https://github.com/ElenVlass/goit-react-hw-04-movies/blob/main/src/images/cast-nested-route.png)
 
 ---
 
