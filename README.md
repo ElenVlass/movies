@@ -2,7 +2,7 @@
 
 #### The SPA for searching and viewing detail information about the movies
 
-## [DEMO](https://vlass-movie-finder.netlify.app/)
+## :shipit:[DEMO](https://vlass-movie-finder.netlify.app/)
 
 #### Home page
 
@@ -34,7 +34,7 @@
 
 компонент `Reviews`, информация об обзорах. Рендерится на странице `MovieDetailsPage`.
 
-компонент `Images`, скриншоты с фильмов. Рендерится на странице `MovieDetailsPage`. Изображения открываются в _модальном окне_, их можно пролистыватью
+компонент `Images`, скриншоты с фильмов. Рендерится на странице `MovieDetailsPage`. Изображения открываются в _модальном окне_, их можно пролистывать.
 
 Реализовано разделение кода _Code Splitting_
 
