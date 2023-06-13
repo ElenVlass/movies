@@ -83,9 +83,6 @@ class MovieDetailsPage extends Component {
                 <NavLink
                   to={{
                     pathname: `${match.url}/cast`,
-                    state: {
-                      from: `/movies/${history.location.state.from.search}`,
-                    },
                   }}
                   className={styles.NavLinkAdditional}
                   activeClassName={styles.ActiveNavLinkAdditional}
@@ -97,9 +94,6 @@ class MovieDetailsPage extends Component {
                 <NavLink
                   to={{
                     pathname: `${match.url}/reviews`,
-                    state: {
-                      from: `/movies/${history.location.state.from.search}`,
-                    },
                   }}
                   className={styles.NavLinkAdditional}
                   activeClassName={styles.ActiveNavLinkAdditional}
@@ -111,9 +105,6 @@ class MovieDetailsPage extends Component {
                 <NavLink
                   to={{
                     pathname: `${match.url}/images`,
-                    state: {
-                      from: `/movies/${history.location.state.from.search}`,
-                    },
                   }}
                   className={styles.NavLinkAdditional}
                   activeClassName={styles.ActiveNavLinkAdditional}
