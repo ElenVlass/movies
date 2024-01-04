@@ -22,20 +22,21 @@
 
 ---
 
-В приложении есть следующие маршруты:
+The application has the following routes:
 
-компонент HomePage, домашняя страница со списком популярных кинофильмов.
+`HomePage` component, a home page with a list of popular movies.
 
-компонент `MoviesPage`, страница поиска фильмов по ключевому слову.
+`MoviesPage` component,  a page for searching movies by keyword.
 
-компонент `MovieDetailsPage`, страница с детальной информацией о кинофильме.
+`MovieDetailsPage` component, a page with detailed information about the movie.
 
-компонент `Cast`, информация о актерском составе. Рендерится на странице `MovieDetailsPage`.
+`Cast` component, information about the cast. Rendered on the `MovieDetailsPage`.
 
-компонент `Reviews`, информация об обзорах. Рендерится на странице `MovieDetailsPage`.
+`Reviews` component, information about reviews. Rendered on the `MovieDetailsPage`.
 
-компонент `Images`, скриншоты с фильмов. Рендерится на странице `MovieDetailsPage`. Изображения открываются в _модальном окне_, их можно пролистывать.
+`Images` component, скриншоты с фильмов. Рендерится на странице `MovieDetailsPage`. The images open in a _modal window_and can be scrolled through.
 
-Реализовано разделение кода _Code Splitting_
+_Code Splitting_ implemented
 
-Добавлена асинхронная загрузка JS-кода для маршрутов приложения с использованием _React.lazy()_ и _Suspense_.
+Added asynchronous loading of JS code for application routes using _React.lazy()_ и _Suspense_.
+
